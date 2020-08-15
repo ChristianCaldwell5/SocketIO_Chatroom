@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>myChat Login</title>
+        <link rel="stylesheet" type="text/css" href="login.css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="chatroom.js"></script>
+    </head>
+    <body>
+    
+        <img src="beachSunset.v1.jpg" class="img-fluid backDrop" alt="Responsive image"> 
+
+        <div id="alertMessageS" class="fadeIn">
+            <span class="attentionMsg">Attention:</span>
+            <span id="resmsg" class="attentionMsg"><br>
+                User account was created successfully!<br>
+                You may now sign in.
+            </span>
+         </div>
+
+         <div id="myUniqueId"></div>
+  
+        <!-- Login Div -->
+        <div id="loginDiv" class="box">
+          <h2>myCHAT Login</h2>
+          <!-- Form -->
+          <form action="/api/user-validate" method="POST">
+            <div class="inputBox">
+              <input type="text" name="user[userID]" required onkeyup="this.setAttribute('value', this.value);" value="">
+              <label>Username</label>
+            </div>
+            <div class="inputBox">
+              <input type="password" name="user[password]" required value="" onkeyup="this.setAttribute('value', this.value);">
+              <label>Password</label>
+            </div>
+            <input type="submit" name="sign-in" value="Sign In" onclick="">
+            <input type="button" name="sign-up" value="Sign Up" onclick="toggleDiv()">  
+          </form>
+        </div>
+        
+        <!-- Signup Div -->
+        <div id="signUpDiv" class="box">
+          <h2>Make an Account</h2>
+          <!-- Form -->
+          <form action="/api/user-create" method="POST">
+            <div class="inputBox">
+              <input type="text" name="user[userID]" required onkeyup="this.setAttribute('value', this.value);" value="">
+              <label>Create Username</label>
+            </div>
+            <div class="inputBox">
+              <input type="password" name="user[password]" required value="" onkeyup="this.setAttribute('value', this.value);">
+              <label>Create Password</label>
+            </div>
+            <input type="submit" name="sign-in" value="Create"> 
+            <input type="button" name="back-btn" value="Back" onclick="toggleDiv()">    
+          </form>
+        </div>
+        <script>
+            function toggleDiv(){
+                $("#signUpDiv").toggle();
+                $("#loginDiv").toggle();
+            }
+            function registerAlert(){
+                $("#alertMessage").hide();
+            }  
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>myChat</title>
+        <link rel="stylesheet" type="text/css" href="chat.css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="server.js"></script>
+    </head>
+    <body>
+        <img src="beachSunset.v1.jpg" class="img-fluid backDrop" alt="Responsive image"> 
+        <div id="wrapper">
+            <h1 id="my-chat-title">myCHAT</h1>
+            <div id="chat-box">
+            </div>
+            <form id="message-form">
+                <input id="message-input" type="text" placeholder="Type Message Here...">
+                <button id="message-send">SEND</button>
+            </form>
+            <button id="logout" onclick="logout()">LOGOUT</button>
+        </div>
+        <script>
+            function logout(){
+                //when node detcts a socket disconnection, the user will be logged out and
+                //new users will be able to use the app
+                location.href = "http://www.chriscaldwelldev.com:18049/";
+            }
+        </script>
+    </body>
+</html>
