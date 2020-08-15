@@ -1,6 +1,3 @@
-The link to the running instance on my server: http://www.chriscaldwelldev.com:18049 
-The server will not be updated. Can be proven when downloaded in front of you and ran again.
-
 The login uses a database instead of a text file (Approved by the professor)
 The login page allows for user creation or login only. 
 Proper messages will be provided for wrong user creation parameters, failed login attempt, successful user account creation,
